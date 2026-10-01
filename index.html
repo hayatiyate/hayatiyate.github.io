@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>حياتيات | Hayatiyate</title>
+
+<style>
+:root{
+  --bg:#0d0d0f;
+  --card:#17171a;
+  --card-hover:#202024;
+
+  --text:#f5f1e8;
+  --muted:#aaa6a0;
+
+  --accent:#e46f19;
+  --accent-soft:#a94c12;
+
+  --border:rgba(255,255,255,.08);
+
+  --radius:18px;
+  --max-width:620px;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at top, #27211c 0%, #111113 32%, #09090b 70%);
+  color:var(--text);
+
+  font-family:
+    "Cairo",
+    "Tajawal",
+    Arial,
+    sans-serif;
+
+  min-height:100vh;
+}
+
+.page{
+  width:min(100% - 28px,var(--max-width));
+  margin:auto;
+  padding:30px 0 60px;
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile{
+  text-align:center;
+  padding:15px 10px 28px;
+}
+
+.logo{
+  width:105px;
+  height:105px;
+
+  border-radius:50%;
+  object-fit:cover;
+
+  border:2px solid rgba(228,111,25,.75);
+
+  margin-bottom:15px;
+}
+
+.profile h1{
+  font-size:25px;
+  margin:0 0 9px;
+  font-weight:800;
+}
+
+.profile p{
+  margin:0 auto;
+
+  max-width:470px;
+
+  line-height:1.9;
+  font-size:14px;
+
+  color:var(--muted);
+}
+
+
+/* =========================
+   SECTION TITLES
+========================= */
+
+.section{
+  margin-top:30px;
+}
+
+.section-title{
+  display:flex;
+  align-items:center;
+  gap:9px;
+
+  font-size:15px;
+  font-weight:800;
+
+  margin-bottom:12px;
+}
+
+.section-title::before{
+  content:"";
+
+  width:5px;
+  height:19px;
+
+  background:var(--accent);
+  border-radius:10px;
+}
+
+
+/* =========================
+   HERO / LATEST VIDEO
+========================= */
+
+.hero{
+  display:block;
+
+  overflow:hidden;
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+
+  text-decoration:none;
+  color:inherit;
+
+  transition:.25s ease;
+}
+
+.hero:hover{
+  transform:translateY(-3px);
+  background:var(--card-hover);
+}
+
+.hero-image{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  display:block;
+}
+
+.hero-content{
+  padding:18px;
+}
+
+.badge{
+  display:inline-block;
+
+  background:rgba(228,111,25,.14);
+  color:#ff9e5a;
+
+  border:1px solid rgba(228,111,25,.25);
+
+  border-radius:999px;
+
+  padding:5px 11px;
+
+  font-size:11px;
+  font-weight:700;
+
+  margin-bottom:10px;
+}
+
+.hero h2{
+  margin:0 0 8px;
+
+  font-size:21px;
+  line-height:1.6;
+}
+
+.hero p{
+  margin:0;
+
+  color:var(--muted);
+
+  line-height:1.8;
+  font-size:13px;
+}
+
+.watch{
+  display:inline-flex;
+  margin-top:16px;
+
+  color:#ff9e5a;
+
+  font-weight:800;
+  font-size:13px;
+}
+
+
+/* =========================
+   FEATURED VIDEOS
+========================= */
+
+.cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.card{
+  text-decoration:none;
+  color:inherit;
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+  border-radius:15px;
+
+  overflow:hidden;
+
+  transition:.25s ease;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  background:var(--card-hover);
+}
+
+.card img{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  display:block;
+}
+
+.card-body{
+  padding:12px;
+}
+
+.card-title{
+  font-size:13px;
+  font-weight:750;
+  line-height:1.65;
+}
+
+
+/* =========================
+   COMING NEXT
+========================= */
+
+.coming{
+  background:
+   linear-gradient(135deg,#17171a,#211912);
+
+  border:1px solid rgba(228,111,25,.25);
+
+  border-radius:var(--radius);
+
+  padding:22px;
+
+  position:relative;
+  overflow:hidden;
+}
+
+.coming::after{
+  content:"";
+
+  position:absolute;
+
+  width:120px;
+  height:120px;
+
+  left:-50px;
+  top:-50px;
+
+  background:var(--accent);
+
+  filter:blur(85px);
+  opacity:.25;
+}
+
+.coming-label{
+  font-size:11px;
+  color:#ff9e5a;
+
+  font-weight:800;
+
+  margin-bottom:7px;
+}
+
+.coming h3{
+  margin:0 0 8px;
+
+  font-size:22px;
+}
+
+.coming p{
+  margin:0;
+
+  color:var(--muted);
+
+  font-size:13px;
+  line-height:1.8;
+}
+
+
+/* =========================
+   SHORT
+========================= */
+
+.short-card{
+  display:flex;
+  align-items:center;
+  gap:15px;
+
+  padding:12px;
+
+  border-radius:var(--radius);
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+
+  color:inherit;
+  text-decoration:none;
+}
+
+.short-card img{
+  width:90px;
+  height:125px;
+
+  object-fit:cover;
+
+  border-radius:11px;
+}
+
+.short-info{
+  min-width:0;
+}
+
+.short-small{
+  color:#ff9e5a;
+
+  font-size:11px;
+  font-weight:700;
+}
+
+.short-title{
+  font-size:15px;
+
+  line-height:1.7;
+
+  font-weight:750;
+
+  margin-top:5px;
+}
+
+
+/* =========================
+   SOCIALS
+========================= */
+
+.social-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:9px;
+}
+
+.social{
+  text-align:center;
+
+  padding:13px 5px;
+
+  border-radius:13px;
+
+  color:var(--text);
+  text-decoration:none;
+
+  font-size:12px;
+  font-weight:700;
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+
+  transition:.2s;
+}
+
+.social:hover{
+  border-color:rgba(228,111,25,.6);
+}
+
+
+/* =========================
+   MAIN CTA
+========================= */
+
+.main-button{
+  display:block;
+
+  margin-top:30px;
+
+  background:var(--accent);
+
+  color:#fff;
+
+  text-align:center;
+
+  padding:16px 20px;
+
+  font-weight:850;
+
+  text-decoration:none;
+
+  border-radius:14px;
+
+  transition:.2s;
+}
+
+.main-button:hover{
+  background:#f17b24;
+  transform:translateY(-2px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  text-align:center;
+
+  color:#777;
+
+  font-size:11px;
+
+  padding-top:35px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:480px){
+
+  .page{
+    width:min(100% - 22px,620px);
+  }
+
+  .profile h1{
+    font-size:22px;
+  }
+
+  .hero h2{
+    font-size:18px;
+  }
+
+  .cards{
+    gap:9px;
+  }
+
+}
+</style>
+</head>
+
+
+<body>
+
+<main class="page">
+
+
+<!-- PROFILE -->
+
+<section class="profile">
+
+  <img
+    class="logo"
+    src="logo.png"
+    alt="Hayatiyate">
+
+  <h1>
+    حياتيات | Hayatiyate
+  </h1>
+
+  <p>
+    قصص حقيقية، ألغاز تاريخية،
+    وتحقيقات وثائقية تكشف ما وراء الأحداث.
+  </p>
+
+</section>
+
+
+
+<!-- LATEST DOCUMENTARY -->
+
+<section class="section">
+
+<div class="section-title">
+أحدث تحقيق
+</div>
+
+<a
+class="hero"
+href="YOUTUBE_CHERNOBYL_LINK"
+target="_blank"
+>
+
+<img
+class="hero-image"
+src="chernobyl-thumbnail.jpg"
+alt="تشيرنوبل"
+>
+
+<div class="hero-content">
+
+<span class="badge">
+تحقيق جديد
+</span>
+
+<h2>
+لماذا لا يمكن ببساطة تنظيف تشيرنوبل؟
+</h2>
+
+<p>
+بعد نحو أربعين عاماً،
+ما زالت المواد النووية داخل المفاعل الرابع
+تفرض واحداً من أصعب مشاريع التفكيك في العالم.
+</p>
+
+<span class="watch">
+شاهد التحقيق الكامل ←
+</span>
+
+</div>
+
+</a>
+
+</section>
+
+
+
+<!-- FEATURED -->
+
+<section class="section">
+
+<div class="section-title">
+تحقيقات مختارة
+</div>
+
+<div class="cards">
+
+
+<a
+class="card"
+href="VIDEO_LINK_1"
+target="_blank"
+>
+
+<img
+src="video1.jpg"
+alt=""
+>
+
+<div class="card-body">
+
+<div class="card-title">
+حين أعدمت رومانيا دكتاتورها
+على الهواء مباشرة
+</div>
+
+</div>
+
+</a>
+
+
+
+<a
+class="card"
+href="VIDEO_LINK_2"
+target="_blank"
+>
+
+<img
+src="video2.jpg"
+alt=""
+>
+
+<div class="card-body">
+
+<div class="card-title">
+تحقيق آخر من حياتيات
+</div>
+
+</div>
+
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<!-- COMING NEXT -->
+
+<section class="section">
+
+<div class="section-title">
+التحقيق القادم
+</div>
+
+<div class="coming">
+
+<div class="coming-label">
+قريباً على حياتيات
+</div>
+
+<h3>
+كنز رومل المفقود
+</h3>
+
+<p>
+رجل ادعى أنه يعرف مكان كنز
+من الحرب العالمية الثانية...
+
+لكن عملية البحث انتهت دون العثور عليه.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- SHORT -->
+
+<section class="section">
+
+<div class="section-title">
+شاهد في أقل من دقيقة
+</div>
+
+<a
+class="short-card"
+href="SHORT_LINK"
+target="_blank"
+>
+
+<img
+src="chernobyl-short.jpg"
+alt=""
+>
+
+<div class="short-info">
+
+<div class="short-small">
+SHORT
+</div>
+
+<div class="short-title">
+بعد 40 سنة...
+95% من وقود تشيرنوبل
+ما زال في الداخل
+</div>
+
+</div>
+
+</a>
+
+</section>
+
+
+
+<!-- SOCIALS -->
+
+<section class="section">
+
+<div class="section-title">
+تابع حياتيات
+</div>
+
+<div class="social-grid">
+
+<a
+class="social"
+href="YOUTUBE_LINK"
+target="_blank"
+>
+YouTube
+</a>
+
+<a
+class="social"
+href="TIKTOK_LINK"
+target="_blank"
+>
+TikTok
+</a>
+
+<a
+class="social"
+href="INSTAGRAM_LINK"
+target="_blank"
+>
+Instagram
+</a>
+
+<a
+class="social"
+href="FACEBOOK_LINK"
+target="_blank"
+>
+Facebook
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- FINAL CTA -->
+
+<a
+class="main-button"
+href="YOUTUBE_CHANNEL_LINK"
+target="_blank"
+>
+🎬 جميع تحقيقات حياتيات على YouTube
+</a>
+
+
+
+<footer>
+Hayatiyate © 2026
+</footer>
+
+
+</main>
+
+</body>
+</html>
